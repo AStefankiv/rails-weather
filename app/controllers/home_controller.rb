@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
-    render 'index'
+    # render 'index'
+    url = "https://api.openweathermap.org/data/2.5/weather?lat=51.049999&lon=-114.066666&units=metric&appid=5d03de9143d8f66e4da9cd4ff4be7cfc"
   end
 end
