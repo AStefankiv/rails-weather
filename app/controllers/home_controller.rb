@@ -1,16 +1,3 @@
-# require 'net/http'
-
-# class HomeController < ApplicationController
-#   def index
-#     # render 'index'
-#     url = "https://api.openweathermap.org/data/2.5/weather?lat=51.049999&lon=-114.066666&units=metric&appid=5d03de9143d8f66e4da9cd4ff4be7cfc"
-#     uri = URI(url)
-#     response = Net::HTTP.get_response(uri)
-#     @data = JSON.parse(response.body)
-#   end
-# end
-
-
 require 'net/http'
 
 class HomeController < ApplicationController
@@ -19,8 +6,12 @@ class HomeController < ApplicationController
     apiKey = "5d03de9143d8f66e4da9cd4ff4be7cfc"
     url = "https://api.openweathermap.org/data/2.5/weather?q=#{@city}&units=metric&appid=#{apiKey}"
     uri = URI(url)
+    puts 'url: ' + url.to_s
+    puts 'uri: ' + uri.to_s
     response = Net::HTTP.get_response(uri)
+    puts 'response: ' + response.to_s
     @data = JSON.parse(response.body)
+    puts 'data: ' + @data.to_s
   end
 
   def searching
